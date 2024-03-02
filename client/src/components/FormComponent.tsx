@@ -9,6 +9,7 @@ const FormComponent = () => {
     return (
         <div className="form-wrapper">
             <form>
+                <h2> { path.includes('/add') ? "Add New Todo " : "Update Todo" } </h2>
                 <input type="text" placeholder="Title..." />
                 <input type="text" placeholder="Description..." />
                 <button type="button">
