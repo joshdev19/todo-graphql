@@ -6,6 +6,6 @@ export const TodosClient = new GraphQLObjectType({
         id: { type: GraphQLID },
         title: { type: GraphQLString },
         description: { type: GraphQLString },
-        done: { type: GraphQLBoolean }
+        done: { type: GraphQLString }
     })
 })
