@@ -1,20 +1,26 @@
 import Todos from "./Todos"
-import { Data } from '../../data'
-import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { GET_TODOS } from "../graphql/todos/queries";
+import { TODOTYPES } from "../types/types";
 
 const TodosWrapper = () => {
 
-    // Temporary
-    const [ data, setData ] = useState();
-
-    useEffect(() => {
-        setData(Data);
-    }, setData)
+    const { data, error, loading } = useQuery(GET_TODOS);
 
     return (
         <div className="todos-wrapper">
             {
-                data && data.map( d => <Todos key={d?.id} {...d} />)
+                error && (
+                    <p> Error... </p>
+                )
+            }
+            {
+                loading && (
+                    <p> Loading... </p>
+                )
+            }
+            {
+                data && data.todos?.map( ( d:TODOTYPES ) => <Todos key={d?.id} {...d} />)
             }
         </div>
     )
