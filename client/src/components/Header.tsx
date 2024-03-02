@@ -8,7 +8,7 @@ const Header = () => {
         <nav>
             <Link to="/" className="logo"> TODO APP </Link>
             <Search/>
-            <Link to="/add">
+            <Link to="/add" className="add">
                 <FontAwesomeIcon icon={faAdd}/>
                 <p> TODO </p>
             </Link>
