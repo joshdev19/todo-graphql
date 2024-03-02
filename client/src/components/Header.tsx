@@ -10,6 +10,7 @@ const Header = () => {
             <Search/>
             <Link to="">
                 <FontAwesomeIcon icon={faAdd}/>
+                <p> TODO </p>
             </Link>
         </nav>
     )
