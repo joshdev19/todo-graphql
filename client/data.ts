@@ -10,5 +10,5 @@ export const Data = [
         title: "title 2",
         description: "Description 2",
         done: false
-    },
+    }
 ]
