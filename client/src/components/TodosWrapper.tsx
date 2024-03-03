@@ -6,7 +6,7 @@ import { TODOTYPES } from "../types/types";
 const TodosWrapper = () => {
 
     const { data, error, loading } = useQuery(GET_TODOS);
-
+    
     return (
         <div className="todos-wrapper">
             {
