@@ -1,6 +1,6 @@
 import Todos from "./Todos"
 import { useQuery } from "@apollo/client";
-import { GET_TODOS } from "../graphql/todos/queries";
+import { GET_TODOS } from "../graphql/todos/todos_queries";
 import { TODOTYPES } from "../types/types";
 
 const TodosWrapper = () => {
