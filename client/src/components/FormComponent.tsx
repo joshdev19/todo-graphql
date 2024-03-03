@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { TODOTYPES } from "../types/types";
 import { CREATE_TODO } from "../graphql/todos/todos_mutations";
 import { useMutation } from "@apollo/client";
 import { GET_TODOS } from "../graphql/todos/todos_queries";
-
+import { toast } from "react-toastify";
 
 const FormComponent = () => {
 
+    const navigate = useNavigate()
     const location = useLocation();
     const path = location.pathname;
     const { id } = useParams();
@@ -36,11 +37,18 @@ const FormComponent = () => {
     }
 
     const submitHandler = async () => {
-        if(path.includes('/add')) {
-            createTodo(values?.title, values?.description)
-        }
-        else {
-            ""
+        try {
+            if(path.includes('/add')) {
+                createTodo(values?.title, values?.description)
+                toast.success("Created Successfully")
+                navigate('/')
+            }
+            else {
+                toast.success("Updated Successfully")
+                navigate('/')
+            }
+        } catch (error) {
+            toast.error("Failed to add todo")
         }
     }
 
