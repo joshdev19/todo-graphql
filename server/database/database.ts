@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-export const performDataConnection = async (stmt: any, value: string) => {
+export const performDataConnection = async (stmt: any, value: any) => {
 
     const pool = mysql.createPool({
         user: process.env.MYSQL_USER,
